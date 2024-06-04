@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMPLOYEE SALARY SLIP SYSTEM</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    background: linear-gradient(to right, #a476f3, #7736e7);
+    color: rgb(243, 243, 246);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    font-size: 24px;
+    position: relative;
+  }
+
+  .logo {
+    position: absolute;
+    left: 35px;
+    width: 420px;
+    height: auto;
+  }
+
+  .title {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .menu {
+    background-color: #673ab7;
+    padding: 10px;
+    color: white;
+  }
+
+  .menu-item {
+    background-color: #9575cd;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    color: white;
+    cursor: pointer;
+  }
+
+  .menu-item:hover {
+    background-color: #3d0b93;
+  }
+
+  .content {
+    background-color: rgb(172, 193, 247);
+    padding: 5px;
+    min-height: 500px;
+    text-align: center;
+  }
+
+  .btn {
+    background-color: #673ab7;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #350b7d;
+  }
+
+  footer {
+    background: linear-gradient(to right, #a476f3, #7736e7);
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  span {
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .slide{
+    height: 525px;
+  }
+  /* Media queries for responsiveness */
+  @media only screen and (max-width: 768px) {
+    .logo {
+      width: 300px;
+    }
+
+    .header {
+      flex-direction: column;
+      padding: 15px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .menu-item {
+      width: 100%;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+    }
+
+    .content {
+      min-height: 300px;
+    }
+
+    footer {
+      position: static;
+      padding: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .logo {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 55px;
+      margin-left: 38px;
+      padding: 5px;
+      width: 300px;
+    }
+    .title{
+      text-align: center;
+      margin-top: 40px;
+      padding: 10px;
+    }
+
+    .header {
+      font-size: 20px;
+    }
+
+    .menu {
+      padding: 5px;
+    }
+
+    .menu-item {
+      padding: 6px;
+    }
+
+    .btn {
+      padding: 6px 12px;
+    }
+
+    .content {
+      min-height: 200px;
+    }
+
+    footer {
+      padding: 5px;
+    }
+  }
+</style>
+<script>
+  function showHRDataButtons() {
+    const contentDiv = document.querySelector('.content');
+    contentDiv.innerHTML = `
+      <button class="btn" onClick="location.href = 'add_data.php';">ADD DATA</button>
+      <button class="btn" onClick="location.href = 'show_data.php';">SHOW DATA</button>
+      <button class="btn" onClick="location.href = 'bulk_data.html';">BULK UPLOAD</button>
+    `;
+  }
+
+  function showSalaryDataButtons() {
+    const contentDiv = document.querySelector('.content');
+    contentDiv.innerHTML = `
+      <button class="btn" onClick="location.href = 'show_salary_data.php';">SHOW DATA</button>
+      <button class="btn" onClick="location.href = 'salary_bulk_upload.php';">BULK UPLOAD</button>
+    `;
+  }
+
+  function showAttendanceDataButtons() {
+    const contentDiv = document.querySelector('.content');
+    contentDiv.innerHTML = `
+      <button class="btn" onClick="location.href = 'show_attendance_data.php';">SHOW DATA</button>
+      <button class="btn" onClick="location.href = 'attendance_bulk_upload.php.php';">BULK UPLOAD</button>
+    `;
+  }
+
+  function showReportButton() {
+    const contentDiv = document.querySelector('.content');
+    contentDiv.innerHTML = `
+      <button class="btn" onClick="location.href = 'salary_report.php';">SALARY REPORT</button>
+    `;
+  }
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const hrDataMenuItem = document.querySelector('.menu-item:nth-child(1)');
+    const salaryDataMenuItem = document.querySelector('.menu-item:nth-child(2)');
+    const attendanceDataMenuItem = document.querySelector('.menu-item:nth-child(3)');
+    const reportMenuItem = document.querySelector('.menu-item:nth-child(4)');
+
+    hrDataMenuItem.addEventListener('click', showHRDataButtons);
+    salaryDataMenuItem.addEventListener('click', showSalaryDataButtons);
+    attendanceDataMenuItem.addEventListener('click', showAttendanceDataButtons);
+    reportMenuItem.addEventListener('click', showReportButton);
+  });
+</script>
+</head>
+<body>
+<div class="header">
+  <img src="./images/logo.png" alt="Nist Logo" class="logo">
+  <b class="title">EMPLOYEE SALARY SLIP SYSTEM</b>
+</div>
+<table width="100%">
+  <tr class="l">
+    <td width="20%" valign="top">
+      <div class="menu">
+        <div class="menu-item">HR DATA</div>
+        <div class="menu-item">SALARY DATA</div>
+        <div class="menu-item">ATTENDANCE DATA</div>
+        <div class="menu-item">REPORT</div>
+      </div>
+    </td>
+    <td width="80%" valign="top">
+      <div class="content">
+        <img class="slide"src="slide-4.png" alt="NIST Image" style="max-width: 100%; ">
+      </div>
+    </td>
+  </tr>
+</table>
+<footer>
+  <p>This website designed and maintained by <span><strong> NIST IT TEAM</strong></span></p>
+</footer>
+</body>
+</html>
